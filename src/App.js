@@ -3,7 +3,6 @@ import { Users } from "./users";
 import "./app.css";
 import Table from "./table";
 
-
 //////////////////////BASIC SEARCH
 
 // function App() {
@@ -30,24 +29,22 @@ import Table from "./table";
 
 function App() {
   const [query, setQuery] = useState("");
-  const keys = ['first_name', 'last_name', 'email'];
+  const keys = ["first_name", "last_name", "email"];
   const search = (data) => {
-    return data.filter(
-      (item) =>
-        keys.some((key) => item[key].toLowerCase().includes(query))
+    return data.filter((item) =>
+      keys.some((key) => item[key].toLowerCase().includes(query))
     );
   };
   return (
-    <div className='app'>
+    <div className="app">
       <input
-        className='search'
+        className="search"
         placeholder="Search..."
-        onChange={(e) => setQuery(e.target.value.toLowerCase())} />
-      <ul className='list'>
-        {<Table data={search(Users)} />}
-      </ul>
+        onChange={(e) => setQuery(e.target.value.toLowerCase())}
+      />
+      <ul className="list">{<Table data={search(Users)} />}</ul>
     </div>
   );
-};
+}
 
 export default App;
